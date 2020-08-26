@@ -19,12 +19,13 @@ telegram.on('message', (msg) => {
   const message = msg.text;
 
   if (readComand.weather(message)) {
-    getWeather().then(data => telegram.sendMessage(chatId, data))
+    getWeather().then(data => telegram.sendMessage(chatId, JSON.stringify(data)))
 
   }
 
   if (readComand.whoIAm(message)) {
-    telegram.sendMessage(chatId, "You are not danylo");
+     const responce =  msg.from.username === "sviatkk" ?  "Ти святік!" : "Ти не святік!!!";
+      telegram.sendMessage(chatId, responce);
   }
 
 });

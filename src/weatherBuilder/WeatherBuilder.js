@@ -3,7 +3,12 @@ const {config} = require('../../config/config');
 
 
 const buildWeaterData = (weatherType,temperature,temperatureFeelsLike ) => {
-    return `${weatherType} ${temperature} ${temperatureFeelsLike}`
+    const data ={
+        img: "",
+        description: weatherType,
+        temperature: temperature
+    }
+    return data;
 }
 
 module.exports.getWeather = async  () => {
@@ -12,7 +17,7 @@ module.exports.getWeather = async  () => {
             const weatherType = response.data.weather[0].main;
             const temperature = response.data.main.temp;
             const temperatureFeelsLike = response.data.main.feels_like;
-            return (buildWeaterData(weatherType , temperature , temperatureFeelsLike ));
+            return buildWeaterData(weatherType , temperature , temperatureFeelsLike );
         })
         .catch(error => {
             return ("Вельмишановний братан , сорі я відпочиваю!");
