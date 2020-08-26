@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Sv1at1k/danyloWeatherBotTelegram#readme",
   "dependencies": {
+    "axios": "^0.16.2",
     "node-telegram-bot-api": "^0.50.0"
   },
   "devDependencies": {
