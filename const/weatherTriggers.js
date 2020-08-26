@@ -1,0 +1,1 @@
+module.exports.weatherTriggers = ["weather","погода","прогноз","погоди","дощ"];
