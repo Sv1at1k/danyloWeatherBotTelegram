@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/Sv1at1k/danyloWeatherBotTelegram/issues"
   },
-  "homepage": "https://github.com/Sv1at1k/danyloWeatherBotTelegram#readme"
+  "homepage": "https://github.com/Sv1at1k/danyloWeatherBotTelegram#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.50.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/register": "^7.10.5"
+  }
 }
