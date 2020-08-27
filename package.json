@@ -18,7 +18,8 @@
   "homepage": "https://github.com/Sv1at1k/danyloWeatherBotTelegram#readme",
   "dependencies": {
     "axios": "^0.16.2",
-    "node-telegram-bot-api": "^0.50.0"
+    "node-telegram-bot-api": "^0.50.0",
+    "telegraf": "^3.38.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",

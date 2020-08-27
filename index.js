@@ -1,4 +1,6 @@
-var TelegramBot = require('node-telegram-bot-api');
+const { Telegraf } = require('telegraf')
+
+
 const {
   config
 } = require('./config/config');
@@ -9,23 +11,26 @@ const {
   getWeather
 } = require('./src/weatherBuilder/WeatherBuilder');
 
+const bot = new Telegraf(config.botToken);
 
-var telegram = new TelegramBot(config.botToken, {
-  polling: true
-});
+bot.launch();
+// bot.on('message', (msg) => {
+//   const chatId = msg.chat.id;
+//   const message = msg.text;
 
-telegram.on('message', (msg) => {
-  const chatId = msg.chat.id;
-  const message = msg.text;
+//   if (readComand.weather(message)) {
+//     getWeather().then(data => bot.sendMessage(chatId, JSON.stringify(data)))
 
-  if (readComand.weather(message)) {
-    getWeather().then(data => telegram.sendMessage(chatId, JSON.stringify(data)))
+//   }
 
-  }
+//   if (readComand.whoIAm(message)) {
+//      const responce =  msg.from.username === "sviatkk" ?  "Ти святік!" : "Ти не святік!!!";
+//      bot.sendMessage(chatId, responce);
+//   }
 
-  if (readComand.whoIAm(message)) {
-     const responce =  msg.from.username === "sviatkk" ?  "Ти святік!" : "Ти не святік!!!";
-      telegram.sendMessage(chatId, responce);
-  }
+// });
 
-});
+bot.on('message', (ctx) => {
+  console.log(ctx)
+  // ctx.reply(JSON.stringify(ctx));
+})
