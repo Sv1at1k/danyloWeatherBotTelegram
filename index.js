@@ -31,6 +31,17 @@ bot.launch();
 // });
 
 bot.on('message', (ctx) => {
-  console.log(ctx)
-  // ctx.reply(JSON.stringify(ctx));
+  const message = ctx.update.message.text;
+  const messageSender = ctx.update.message.from.username;
+    if (readComand.weather(message)) {
+      getWeather().then(data => ctx.reply(JSON.stringify(data)))
+
+    }
+
+    if (readComand.whoIAm(message)) {
+      const responce =  messageSender === "sviatkk" ?  "Ти святік!" : "Ти не святік!!!";
+      ctx.reply(responce);
+    }
+
+
 })
