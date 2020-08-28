@@ -6,9 +6,10 @@ const {weatherTypes} = require('../../const/weatherTypes');
 const kelvinToCelsius = require('kelvin-to-celsius');
 
 const buildWeaterData = (weatherType,temperature,temperatureFeelsLike ) => {
+    console.log(weatherType)
     const data ={
-        img: weatherTypes["Thunderstorm"].img,
-        description: ` ${weatherTypes["Thunderstorm"].description} Температура: ${kelvinToCelsius(temperature)}\xB0C. Відчувається: ${kelvinToCelsius(temperatureFeelsLike)}\xB0C.`,
+        img: weatherTypes[weatherType].img,
+        description: ` ${weatherTypes[weatherType].description} Температура: ${kelvinToCelsius(temperature)}\xB0C. Відчувається: ${kelvinToCelsius(temperatureFeelsLike)}\xB0C.`,
     }
     return data;
 }
@@ -16,7 +17,7 @@ const buildWeaterData = (weatherType,temperature,temperatureFeelsLike ) => {
 module.exports.getWeather = async  () => {
    return axios.get(`https://api.openweathermap.org/data/2.5/weather?q=lviv&appid=${config.weatherApiKey}`)
         .then(response => {
-            const weatherType = response.data.weather;
+            const weatherType = response.data.weather[0].main;
             const temperature = response.data.main.temp;
             const temperatureFeelsLike = response.data.main.feels_like;
             return buildWeaterData(weatherType , temperature , temperatureFeelsLike );
