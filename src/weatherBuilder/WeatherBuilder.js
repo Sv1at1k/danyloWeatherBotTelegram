@@ -1,12 +1,14 @@
 const axios = require('axios');
 const {config} = require('../../config/config');
+const {weatherTypes} = require('../../const/weatherTypes');
 
+//i added this package just for fun))))) 13 weekly downloads_))))))))))))))
+const kelvinToCelsius = require('kelvin-to-celsius');
 
 const buildWeaterData = (weatherType,temperature,temperatureFeelsLike ) => {
     const data ={
-        img: "",
-        description: weatherType,
-        temperature: temperature
+        img: weatherTypes["Thunderstorm"].img,
+        description: ` ${weatherTypes["Thunderstorm"].description} Температура: ${kelvinToCelsius(temperature)}\xB0C. Відчувається: ${kelvinToCelsius(temperatureFeelsLike)}\xB0C.`,
     }
     return data;
 }
@@ -14,7 +16,7 @@ const buildWeaterData = (weatherType,temperature,temperatureFeelsLike ) => {
 module.exports.getWeather = async  () => {
    return axios.get(`https://api.openweathermap.org/data/2.5/weather?q=lviv&appid=${config.weatherApiKey}`)
         .then(response => {
-            const weatherType = response.data.weather[0].main;
+            const weatherType = response.data.weather;
             const temperature = response.data.main.temp;
             const temperatureFeelsLike = response.data.main.feels_like;
             return buildWeaterData(weatherType , temperature , temperatureFeelsLike );
@@ -23,3 +25,9 @@ module.exports.getWeather = async  () => {
             return ("Вельмишановний братан , сорі я відпочиваю!");
         });
 }
+
+//function to conver farenheit to celsius
+function fToC(fahrenheit) {
+  
+    return (fahrenheit-32) / 1.8;
+} 
