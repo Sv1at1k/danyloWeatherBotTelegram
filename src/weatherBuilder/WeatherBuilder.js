@@ -8,7 +8,7 @@ const kelvinToCelsius = require('kelvin-to-celsius');
 const buildWeaterData = (weatherType,temperature,temperatureFeelsLike ) => {
     const data ={
         img: weatherTypes[weatherType].img,
-        description: ` ${weatherTypes[weatherType].description} Температура: ${kelvinToCelsius(temperature)}\xB0C. Відчувається: ${kelvinToCelsius(temperatureFeelsLike)}\xB0C.`,
+        description: ` ${weatherTypes[weatherType].description} \nТемпература: ${kelvinToCelsius(temperature)}\xB0C. \nВідчувається: ${kelvinToCelsius(temperatureFeelsLike)}\xB0C.`,
     }
     return data;
 }

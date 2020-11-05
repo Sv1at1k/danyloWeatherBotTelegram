@@ -12,7 +12,7 @@ module.exports.weatherTypes = {
     Rain: {
         id: "5",
         description: "Дощ у Львові , як неочікувано." ,
-        img: "./img/confused.jpg"
+        img: "./img/surprised.jpg"
     },
     Snow: {
         id: "5",
@@ -22,7 +22,7 @@ module.exports.weatherTypes = {
     Clear: {
         id: "5",
         description: "Здається час ховати  сандалі(" ,
-        img: "./img/happy.jpg"
+        img: "./img/surprised.jpg"
     }
 
 }

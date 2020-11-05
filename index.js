@@ -7,9 +7,6 @@ const {
   config
 } = require('./config/config');
 const {
-  readComand
-} = require('./src/commandReader/commandReader');
-const {
   getWeather
 } = require('./src/weatherBuilder/WeatherBuilder');
 
@@ -32,6 +29,8 @@ cron.schedule('00 10 * * *', function () {
     {caption: message , parse_mode: 'HTML'})
 
 });
+
+
 
 // bot.telegram.sendPhoto(
 //   '-1001310081722', 
