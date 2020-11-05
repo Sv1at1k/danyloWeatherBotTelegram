@@ -21,7 +21,7 @@ module.exports.weatherTypes = {
     },
     Clear: {
         id: "5",
-        description: "Здається час діставати сандалі!!" ,
+        description: "Здається час ховати  сандалі(" ,
         img: "./img/happy.jpg"
     }
 

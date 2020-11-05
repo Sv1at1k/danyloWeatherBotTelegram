@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "kelvin-to-celsius": "^1.1.0",
+    "node-cron": "^2.0.3",
     "node-telegram-bot-api": "^0.50.0",
     "telegraf": "^3.38.0"
   },

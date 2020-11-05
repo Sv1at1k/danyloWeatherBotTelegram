@@ -4,11 +4,11 @@ const weather= (comand) => {
   return  weatherTriggers.some(trigger=>comand.includes(trigger));
 }
 
-const whoIAm = (comand) => {
-    return  comand === "Хто я?"
+const whoIsPidr = (comand) => {
+    return  comand ? comand.toLowerCase().includes("хто підар") : false;
 }
 
 module.exports.readComand = {
     weather,
-    whoIAm
+    whoIsPidr
 }
