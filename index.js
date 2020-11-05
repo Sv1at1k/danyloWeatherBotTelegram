@@ -31,9 +31,8 @@ cron.schedule('00 10 * * *', function () {
 });
 
 
-
-// bot.telegram.sendPhoto(
-//   '-1001310081722', 
-//   { source: './img/pidr.jpg.jpg'},
-//   {caption: "Ну привіт)" , parse_mode: 'HTML'})
+bot.telegram.sendPhoto(
+  '-1001310081722', 
+  { source: './img/pidr.jpg.jpg'},
+  {caption: "Ну привіт.Я оновився.Моя версія 0.01)" , parse_mode: 'HTML'})
 bot.launch();
